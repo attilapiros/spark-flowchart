@@ -11,8 +11,12 @@ Error --> SqlAnalysisError[sql.AnalysisException]
 Error --> WriteFails[WriteFails]
 Error --> OtherError[Others]
 
+OtherError --> SchemaColumnConvertNotSupportedException
+OtherError --> TooLargeJar[JAR too large]
+
 Error --> Serialization
 Serialization --> KyroBuffer[Kyro Buffer Overflow]
+Serialization --> MaxSerializeTask[Max serialized task size]
 
 KyroBuffer --> DriverMaxResultSize
 
@@ -31,6 +35,10 @@ ExecutorMemory -->	ExecutorMemoryError[Spark executor ran out of memory]
 ExecutorMemory -->	ExecutorDiskError[Executor out of disk error]
 ExecutorMemory -->  ContainerOOM
 ExecutorMemory -->  LARGERECORDS[Too large record / column+record]
+
+click MaxSerializeTask "../../details/max_serialized_task_size"
+click SchemaColumnConvertNotSupportedException "../../details/SchemaColumnConvertNotSupportedException"
+click SchemaColumnConvertNotSupportedException "../../details/toolargejar"
 
 click Error "../../details/error-job"
 click MemoryError "../../details/error-memory"
