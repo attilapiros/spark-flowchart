@@ -13,6 +13,10 @@ Error --> OtherError[Others]
 
 OtherError --> SchemaColumnConvertNotSupportedException
 OtherError --> TooLargeJar[JAR too large]
+OtherError --> LostShuffleFiles[Lost Shuffle Files]
+
+LostShuffleFiles --> ShuffleExchangeLosesExecReg[ShuffleExchange Loses Executor Registration]
+LostShuffleFiles --> NodeFailures[Node Failures]
 
 Error --> Serialization
 Serialization --> KyroBuffer[Kyro Buffer Overflow]
@@ -36,9 +40,10 @@ ExecutorMemory -->	ExecutorDiskError[Executor out of disk error]
 ExecutorMemory -->  ContainerOOM
 ExecutorMemory -->  LARGERECORDS[Too large record / column+record]
 
+click ShuffleExchangeLosesExecReg "../../details/shuffle_exchange_loses_exec_reg"
 click MaxSerializeTask "../../details/max_serialized_task_size"
 click SchemaColumnConvertNotSupportedException "../../details/SchemaColumnConvertNotSupportedException"
-click SchemaColumnConvertNotSupportedException "../../details/toolargejar"
+click TooLargeJar "../../details/toolargejar"
 
 click Error "../../details/error-job"
 click MemoryError "../../details/error-memory"

@@ -5,6 +5,8 @@ flowchart LR
 
 SlowJob[Slow Job]
 
+SlowJob --> TooLargeJar[JAR too large]
+
 SlowJob --> SlowStage[Slow Stage]
 
 SlowStage --> SlowMap[Slow Read/Map]
@@ -23,6 +25,7 @@ SlowReduce --> SpillToDisk[Spill To Disk]
 SkewedShuffleTasks --> SkewedJoin[Skewed Join]
 SkewedShuffleTasks --> SkewedAggregation[Aggregation/Group By]
 
+click TooLargeJar "../../details/toolargejar"
 
 click SlowJob "../../details/slow-job"
 click SlowStage "../../details/slow-stage"
