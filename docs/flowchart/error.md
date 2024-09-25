@@ -13,7 +13,9 @@ Error --> OtherError[Others]
 
 OtherError --> SchemaColumnConvertNotSupportedException
 OtherError --> TooLargeJar[JAR too large]
-OtherError --> LostShuffleFiles[Lost Shuffle Files]
+
+ShuffleError --> LostShuffleFiles[Lost Shuffle Files]
+ShuffleError --> ShuffleFetchCorrupted[Corrupted Shuffle Files]
 
 LostShuffleFiles --> ShuffleExchangeLosesExecReg[ShuffleExchange Loses Executor Registration]
 LostShuffleFiles --> NodeFailures[Node Failures]
@@ -57,6 +59,7 @@ click ExecutorMemoryError "../../details/error-executor-out-of-memory"
 click ExecutorDiskError "../../details/error-executor-out-of-disk"
 
 click ShuffleError "../../details/error-shuffle"
+click ShuffleFetchCorrupted "../../details/shuffle_fetch_corrupted"
 click SqlAnalysisError "../../details/error-sql-analysis"
 click OtherError "../../details/error-other"
 
