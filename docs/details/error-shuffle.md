@@ -16,6 +16,7 @@ FetchFailed Exceptions can be bucketed into below 4 categories:
 2. Ran out of overhead memory on an Executor
 3. Shuffle block greater than 2 GB
 4. Network TimeOut.
+5. Corrupted Shuffle Block
 
 ### Ran out of heap memory(OOM) on an Executor
 
@@ -57,3 +58,8 @@ Error that you normally see in the executor/task logs:
 * org.apache.spark.shuffle.MetadataFetchFailedException: Missing an output location for shuffle 0
 * org.apache.spark.shuffle.FetchFailedException: Failed to connect to ip-xxxxxxxx
 * Caused by: org.apache.spark.shuffle.FetchFailedException: Too large frame: xxxxxxxxxxx
+
+### Corrupted Shuffle Block
+
+You'll see (on the driver logs) a lot of `Block shuffle_[somenumbershere] is corrupted but the cause is unknown`
+See [corrupted shuffle fetch](../shuffle_fetch_corrupted)

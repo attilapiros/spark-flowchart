@@ -1,7 +1,11 @@
+Spark Error Flowchart: Note this uses mermaid.js which may take awhile to load.
+
 ```mermaid
 flowchart LR
 
 SlowJob[Slow Job]
+
+SlowJob --> TooLargeJar[JAR too large]
 
 SlowJob --> SlowStage[Slow Stage]
 
@@ -10,6 +14,7 @@ SlowStage --> SlowReduce[Slow Shuffle/Reducer/Exchange]
 SlowStage --> SLOWWRITESTOSTORAGE[Slow writes to storage]
 
 SlowJob --> TOOBIGDAG[Too Big DAG]
+SlowJob --> SlowCluster[Slow Cluster]
 
 SlowReduce --> PAGGS[Partial aggregates]
 
@@ -20,11 +25,14 @@ SlowReduce --> SpillToDisk[Spill To Disk]
 SkewedShuffleTasks --> SkewedJoin[Skewed Join]
 SkewedShuffleTasks --> SkewedAggregation[Aggregation/Group By]
 
+click TooLargeJar "../../details/toolargejar"
 
 click SlowJob "../../details/slow-job"
 click SlowStage "../../details/slow-stage"
 click SlowMap "../../details/slow-map"
 click SlowReduce "../../details/slow-reduce"
+click SlowCluster "../../details/slow-job-slow-cluster"
+click TOOBIGDAG "../../details/toobigdag"
 
 click TooFewShuffleTasks "../../details/slow-reduce/#not-enough-shuffle-tasks"
 click TooManyShuffleTasks "../../details/slow-reduce/#too-many-shuffle-tasks"
@@ -58,7 +66,6 @@ click READPARTITIONISSUES "../../details/read-partition-issue"
 
 {%
   include-markdown "./shared.md"
-  start="graph TD"
   end="OHNOES[Contact support]"
   comments=false
 %}

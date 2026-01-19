@@ -2,11 +2,17 @@
 
 Welcome to the Spark Advanced Topics Working Group!
 
-## Viewing the docs
+## Viewing the docs hosted 
+
+Click [here](https://holdenk.github.io/spark-flowchart/flowchart/)
+
+## Viewing the docs locally
 
 First, make sure you have the requirements `pip install -r requirements.txt` then `mkdocs serve` should let you view the docs.
 
 If you have difficulty running `mkdocs serve` you may need to place your local pip path ahead of the other elements so that version of mkdocs takes precedence (e.g. for me `export PATH=~/.local/bin/:$PATH`).
+
+Video instructions [here](https://www.loom.com/share/51ebc97640254f09a467de0c998d99ad).
 
 ## Contributing
 
